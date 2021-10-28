@@ -1,0 +1,48 @@
+specVersion: 0.0.2
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: sOHM
+    network: mainnet
+    source:
+      address: "0x31932e6e45012476ba3a3a4953cba62aee77fbbe"
+      abi: sOHM
+      startBlock: 12014281
+    mapping:
+      kind: ethereum/event
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name: sOHM
+          file: sOHM/abis/sOHM1.json
+        - name: sOHM2
+          file: sOHM/abis/sOHM2.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: sOHM/sOHM.wasm
+  - kind: ethereum/contract
+    name: sOHM2
+    network: mainnet
+    source:
+      address: "0x04f2694c8fcee23e8fd0dfea1d4f5bb8c352111f"
+      abi: sOHM2
+      startBlock: 12622596
+    mapping:
+      kind: ethereum/event
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name: sOHM2
+          file: sOHM2/abis/sOHM2.json
+        - name: sOHM
+          file: sOHM2/abis/sOHM1.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: sOHM2/sOHM2.wasm
