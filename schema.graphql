@@ -16,13 +16,6 @@ type Wallet @entity {
   birth: BigInt
 }
 
-type Minter @entity {
-
-  id: ID!
-  address: Bytes
-  timestamp: BigInt
-
-}
 
 type totalSupply @entity {
 
