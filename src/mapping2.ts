@@ -5,7 +5,6 @@ import {
 //import { ExampleEntity } from "../generated/schema"
 import { Transfer as TransferOHM } from '../generated/schema'
 import { createWallet, createTotals } from './utils/wallets'
-import {SOHM_ERC20_CONTRACT, OHM_ERC20_CONTRACT} from './utils/Constants'
 
 
 export function handleTransfer(event: Transfer): void {
